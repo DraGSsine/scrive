@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import React, { ReactNode } from "react";
 import PricingDialog from "@/components/dashboard/pricing-dialog";
 import { Sidebar } from "@/components/dashboard/sidebar";

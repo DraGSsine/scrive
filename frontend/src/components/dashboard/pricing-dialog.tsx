@@ -146,7 +146,7 @@ const SubscriptionDialog = () => {
       });
       return response.data;
     },
-    onSuccess: (data: any) => {
+    onSuccess: (data: {url:string}) => {
       window.location.href = data.url;
     },
     onError: (error) => {

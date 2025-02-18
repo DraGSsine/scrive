@@ -1,4 +1,4 @@
-import { ArrowRight, Chrome, MessageSquareMore, Sparkles } from "lucide-react";
+import { ArrowRight, Chrome} from "lucide-react";
 import Link from "next/link";
 
 export default function Page() {

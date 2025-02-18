@@ -28,7 +28,7 @@ const page = () => {
             </h2>
             <p className="text-gray-600">
               Our extension does not store any user messages. All messages are
-              sent directly to Google's Gemini AI for processing. We act as an
+              sent directly to Google`&apos;s Gemini AI for processing. We act as an
               intermediary to facilitate this communication, but we do not
               retain or store any message content.
             </p>

@@ -10,7 +10,7 @@ import GoogleAuthButton from "../GoogleAuthButton";
 import cookies from "js-cookie";
 import { z } from "zod";
 import { useState } from "react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { signupSchema } from "@/lib/validation";
 import { toast } from "@/hooks/use-toast";
 import Link from "next/link";
@@ -24,7 +24,7 @@ export default function SignupPage() {
     Partial<Record<keyof SignupFormData, string>>
   >({});
 
-  const { mutate, isPending, isError } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: async (data: SignupFormData) => {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/auth/signup`,
@@ -40,9 +40,9 @@ export default function SignupPage() {
         description: "Account created successfully!",
       });
     },
-    onError: (error: any) => {
+    onError: (error: AxiosError<{message:string}>) => {
       toast({
-        description: error.response.data.message,
+        description: error?.response?.data.message,
         variant: "destructive",
       });
     },

@@ -70,7 +70,7 @@ function Hero() {
               >
                 <Chrome className="w-5 h-5" />
                 Get it for Chrome
-                <span className="hidden sm:inline"> - It's Free</span>
+                <span className="hidden sm:inline"> - It&apos;s Free</span>
               </Button>
               <Button
                 size="lg"
@@ -101,12 +101,12 @@ const HeroLeft = () => {
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
 
-  const messages = [
-    "yo, i want this job. just hit me up with what i need to do next, no messing around.",
-    "Hi Emma, thank you for reaching out. I am very interested in the opportunity and would appreciate further details regarding the role and next steps at your earliest convenience.",
-  ];
-
+  
   useEffect(() => {
+    const messages = [
+      "yo, i want this job. just hit me up with what i need to do next, no messing around.",
+      "Hi Emma, thank you for reaching out. I am very interested in the opportunity and would appreciate further details regarding the role and next steps at your earliest convenience.",
+    ];
     let isActive = true;
 
     const typeMessage = async (message: string) => {
@@ -155,7 +155,9 @@ const HeroLeft = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="relative">
-              <img
+              <Image
+                width={40}
+                height={40}
                 src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e"
                 alt="Profile"
                 className="w-10 h-10 rounded-full border-2 border-white/20 object-cover"
@@ -183,7 +185,9 @@ const HeroLeft = () => {
       {/* Chat Messages */}
       <div className="p-6 space-y-6 bg-gradient-to-b from-gray-50 to-white min-h-[200px]">
         <div className="flex items-start gap-4">
-          <img
+          <Image
+            width={40}
+            height={40}
             src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e"
             alt="Emma"
             className="w-10 h-10 rounded-full border-2 border-blue-100 object-cover"

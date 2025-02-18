@@ -14,7 +14,7 @@ const page = () => {
               1. Service Description
             </h2>
             <p className="text-gray-600">
-              Our service provides an interface to interact with Google's Gemini
+              Our service provides an interface to interact with Google`&apos;s Gemini
               AI through our extension. We facilitate the communication between
               users and the AI service without storing any message content.
             </p>
@@ -36,7 +36,7 @@ const page = () => {
               3. Refund Policy
             </h2>
             <p className="text-gray-600">
-              We offer a 24-hour money-back guarantee. If you're not satisfied
+              We offer a 24-hour money-back guarantee. If you`&apos;re not satisfied
               with our service, you can request a full refund within 24 hours of
               your purchase. To request a refund, please contact our support
               team.
@@ -59,9 +59,9 @@ const page = () => {
               5. Data Processing
             </h2>
             <p className="text-gray-600">
-              Messages sent through our extension are processed by Google's
+              Messages sent through our extension are processed by Google`&apos;s
               Gemini AI. We do not store or retain any message content. Users
-              should be aware that their messages are subject to Google's AI
+              should be aware that their messages are subject to Google`&apos;s AI
               processing terms and conditions.
             </p>
           </section>

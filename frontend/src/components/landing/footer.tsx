@@ -1,7 +1,8 @@
 import React from "react";
 import Logo from "./logo";
-import { ArrowRight, Linkedin, Sparkles, Twitter } from "lucide-react";
+import { ArrowRight, Linkedin, Twitter } from "lucide-react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -41,19 +42,18 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="flex justify-end flex-wrap gap-x-12 gap-y-4">
             {[
-              ["Features", "#features"],
+              ["Testimonials ", "#testimonials"],
               ["Pricing", "#pricing"],
-              ["About", "#about"],
-              ["Terms", "#terms"],
-              ["Privacy", "#privacy"],
+              ["Terms", "/terms"],
+              ["Privacy", "/privacy"],
             ].map(([name, href]) => (
-              <a
+              <Link
                 key={name}
                 href={href}
                 className="text-sm text-zinc-500 hover:text-violet-500 transition-colors"
               >
                 {name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

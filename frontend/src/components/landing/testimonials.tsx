@@ -21,7 +21,7 @@ const TestimonialSection = () => {
           {/* Testimonial Content */}
           <div className="pt-12 sm:pt-16 pl-0 sm:pl-4">
             <h4 className="text-xl sm:text-2xl font-bold text-fuchsia-500 mb-4">
-              "Game-Changer for Me"
+            &quot;Game-Changer for Me&quot;
             </h4>
             <p className="text-gray-700 text-base sm:text-lg mb-8 sm:mb-12 leading-relaxed">
               I was able to craft perfect responses and refine my drafts for

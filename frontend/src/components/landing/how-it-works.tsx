@@ -1,5 +1,5 @@
 import React from "react";
-import { Airplay, Pin, Sparkles, Wand, WandSparkles } from "lucide-react";
+import { Sparkles, WandSparkles } from "lucide-react";
 import Image from "next/image";
 
 function WindowCard({

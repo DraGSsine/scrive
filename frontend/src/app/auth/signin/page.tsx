@@ -5,12 +5,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { Loader2, Mail, Lock, User } from "lucide-react";
+import { Loader2, Mail, Lock } from "lucide-react";
 import GoogleAuthButton from "../GoogleAuthButton";
 import cookies from "js-cookie";
 import { z } from "zod";
 import { useState } from "react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { toast } from "@/hooks/use-toast";
 import Link from "next/link";
 
@@ -28,7 +28,7 @@ export default function SigninPage() {
     Partial<Record<keyof SigninFormData, string>>
   >({});
 
-  const { mutate, isPending, isError } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: async (data: SigninFormData) => {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/auth/signin`,
@@ -44,9 +44,9 @@ export default function SigninPage() {
         description: "Signed in successfully!",
       });
     },
-    onError: (error: any) => {
+    onError: (error: AxiosError<{ message: string }>) => {
       toast({
-        description: error.response.data.message,
+        description: error.response?.data?.message || 'An error occurred',
         variant: "destructive",
       });
     },
@@ -183,7 +183,7 @@ export default function SigninPage() {
 
         {/* Footer with improved link styling */}
         <p className="text-center text-sm text-gray-600">
-          Don't have an account?{" "}
+          Don`&apos;t have an account?{" "}
           <Link
             href="/auth/signup"
             className="text-violet-600 hover:text-violet-700 font-medium transition-colors"
