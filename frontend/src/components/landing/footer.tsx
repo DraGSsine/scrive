@@ -1,7 +1,6 @@
 import React from "react";
 import Logo from "./logo";
 import { ArrowRight, Linkedin, Twitter } from "lucide-react";
-import { Button } from "../ui/button";
 import Link from "next/link";
 
 const Footer = () => {

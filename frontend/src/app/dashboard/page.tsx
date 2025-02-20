@@ -47,7 +47,7 @@ export default function Page() {
 
         {/* Action card */}
         <div className="w-full max-w-3xl mx-auto px-4">
-          <a
+          <Link
             href="https://chromewebstore.google.com/detail/scrive/hfadoenckgoahdcacngfebieckmhemef"
             target="_blank"
             rel="noopener noreferrer"
@@ -112,7 +112,7 @@ export default function Page() {
             transform scale-x-0 group-hover:scale-x-100 
             transition-transform duration-300 ease-in-out"
             />
-          </a>
+          </Link>
         </div>
       </div>
     </main>
