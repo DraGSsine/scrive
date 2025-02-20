@@ -55,12 +55,14 @@ function SidebarContent() {
   const pathname = usePathname();
   const { mutate } = useMutation({
     mutationFn: async () => await api.post("/auth/signout"),
+    onSuccess: () => {
+      window.location.href = "/";
+    },
   });
   const handleSignOut = () => {
     mutate();
     if (typeof window !== "undefined")
       window.postMessage({ type: "FROM_PAGE", token: null }, "*");
-    window.location.href = "/";
   };
 
   const { data } = useUserInfo();

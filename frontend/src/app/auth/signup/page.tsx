@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
 import { Loader2, Lock, Mail, User } from "lucide-react";
 import GoogleAuthButton from "../GoogleAuthButton";
 import { z } from "zod";
@@ -18,7 +17,6 @@ import { api } from "@/lib/axios";
 type SignupFormData = z.infer<typeof signupSchema>;
 
 export default function SignupPage() {
-  const router = useRouter();
   const queryClient = useQueryClient();
   const [errors, setErrors] = useState<
     Partial<Record<keyof SignupFormData, string>>
@@ -36,7 +34,7 @@ export default function SignupPage() {
       if (typeof window !== "undefined")
         window.postMessage({ type: "FROM_PAGE", token:data.token }, "*");
       queryClient.invalidateQueries({ queryKey: ["user"] });
-      router.push("/");
+      window.location.href = "/dashboard";
       toast({
         description: "Account created successfully!",
       });

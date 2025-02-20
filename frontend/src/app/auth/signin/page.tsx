@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
 import { Loader2, Mail, Lock } from "lucide-react";
 import GoogleAuthButton from "../GoogleAuthButton";
 import { z } from "zod";
@@ -22,7 +21,6 @@ const signinSchema = z.object({
 type SigninFormData = z.infer<typeof signinSchema>;
 
 export default function SigninPage() {
-  const router = useRouter();
   const queryClient = useQueryClient();
   const [errors, setErrors] = useState<
     Partial<Record<keyof SigninFormData, string>>
@@ -41,7 +39,7 @@ export default function SigninPage() {
       if (typeof window !== "undefined")
         window.postMessage({ type: "FROM_PAGE", token:data.token }, "*");
       queryClient.invalidateQueries({ queryKey: ["user"] });
-      router.push("/");
+      window.location.href = "/dashboard";
       toast({
         description: "Signed in successfully!",
       });
