@@ -1,5 +1,6 @@
 import React from "react";
 import { Flame, Zap, Diamond, Check } from "lucide-react";
+import Link from "next/link";
 
 interface PricingCardProps {
   price: string;
@@ -104,7 +105,8 @@ const PricingCard: React.FC<PricingCardProps> = ({
           ))}
         </ul>
 
-        <button
+        <Link
+          href='/auth/signup'
           className={`w-full py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] ${
             isPopular
               ? "bg-white text-violet-600 hover:bg-zinc-50"
@@ -112,7 +114,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
           }`}
         >
           Get Started
-        </button>
+        </Link>
       </div>
     </div>
   );

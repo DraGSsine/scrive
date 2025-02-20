@@ -1,5 +1,4 @@
 const TOKEN_KEY = "authToken";
-const API_BASE_URL = "http://localhost:5000/api/generate";
 
 window.addEventListener("message", function (event) {
   if (event.source != window) return;

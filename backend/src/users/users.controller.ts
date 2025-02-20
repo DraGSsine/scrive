@@ -6,9 +6,14 @@ import { JwtAuthGuard } from 'src/guards/jwt.guard';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
+  @Get('health')
+  async healthCheck() {
+    return 'ok';
+  }
+
   @Get('info')
   @UseGuards(JwtAuthGuard)
-  async getUserInfo(@Req() req:any) {
+  async getUserInfo(@Req() req: any) {
     if (!req.user) {
       return null;
     }

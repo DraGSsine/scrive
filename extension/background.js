@@ -11,7 +11,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 async function fetchUserInfo(payload) {
   const { lastReceivedMessage, myCurrentMessage } = payload;
-  const res = await fetch("http://localhost:5000/ai/generate", {
+  const res = await fetch("https://api.scrive.com/ai/generate", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -9,7 +9,7 @@ const checkLoginStatus = async () => {
     document.cookie = `authToken=${token}; path=/; max-age=86400; secure`;
     const loading = document.getElementById("loadingState");
     loading.classList.add("active");
-    const response = await fetch("http://localhost:5000/users/info", {
+    const response = await fetch("https://api.scrive.pro/users/info", {
       method: "GET",
       credentials: "include",
     });
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (googleButton) {
     googleButton.addEventListener("click", () => {
       chrome.tabs.create({
-        url: "http://localhost:3000/auth/signup",
+        url: "https://scrive.pro/auth/signup",
       });
     });
   }
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (emailButton) {
     emailButton.addEventListener("click", () => {
       chrome.tabs.create({
-        url: "http://localhost:3000/auth/signup",
+        url: "https://scrive.pro/auth/signup",
       });
     });
   }
@@ -110,8 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const url =
         index === 0
-          ? "http://localhost:3000/terms"
-          : "http://localhost:3000/privacy";
+          ? "https://scrive.pro/terms"
+          : "https://scrive.pro/privacy";
       chrome.tabs.create({ url });
     });
   });

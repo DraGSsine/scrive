@@ -5,7 +5,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, { rawBody: true });
   app.use(cookieParser());
   app.enableCors({
-    origin: ['https://www.linkedin.com', 'http://localhost:3000'],
+    origin: ['https://www.linkedin.com', 'https://scrive.pro','https://scrive.pro'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],

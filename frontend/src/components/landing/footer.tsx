@@ -64,18 +64,18 @@ const Footer = () => {
               © {new Date().getFullYear()} scrive. All rights reserved.
             </div>
             <div className="flex items-center gap-4">
-              <a
-                href="#linkedin"
+              <Link
+                href="https://linkedin.com/company/yassineouchen"
                 className="text-zinc-400 hover:text-blue-500 transition-colors"
               >
                 <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="#twitter"
+              </Link>
+              <Link
+                href="https://twitter.com/yassin_ouchn"
                 className="text-zinc-400 hover:text-blue-500 transition-colors"
               >
                 <Twitter className="w-5 h-5" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
