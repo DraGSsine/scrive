@@ -15,6 +15,11 @@ export class PaymentsService {
     Pro: this.configService.get<string>('PRO_PRICE_ID')!,
     Growth: this.configService.get<string>('GROWTH_PRICE_ID')!,
   };
+  private monthlyCredits = {
+    Starter: 200,
+    Growth: 750,
+    Pro: 'unlimited',
+  };
   constructor(
     @InjectModel(User.name) private userModel: Model<User>,
     private configService: ConfigService,
@@ -41,6 +46,7 @@ export class PaymentsService {
       mode: 'subscription',
       success_url: `${this.configService.get<string>('FRONTEND_URL')}?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: this.configService.get<string>('FRONTEND_URL'),
+      allow_promotion_codes: true,
       metadata: {
         userId,
         plan,
@@ -48,7 +54,7 @@ export class PaymentsService {
     });
 
     return { url: session.url };
-  } 
+  }
 
   async stripeWebhook(req: any, res: Response) {
     const sig = req.headers['stripe-signature'];
@@ -68,11 +74,13 @@ export class PaymentsService {
       const session = event.data.object as Stripe.Checkout.Session;
       const userId = session.metadata?.userId;
       const plan = session.metadata?.plan;
-      if (!userId) {
-        return res.status(400).send('User ID not found');
-      }
-      await this.userModel.findByIdAndUpdate(userId, { plan: plan, creditsUsed: 0 });
+      if (!plan) return res.status(400).send('Plan not found');
+      if (!userId) return res.status(400).send('User ID not found');
+      await this.userModel.findByIdAndUpdate(userId, {
+        plan: plan,
+        creditsUsed: 0,
+        monthlyCredits: this.monthlyCredits[plan],
+      });
     }
   }
 }
-

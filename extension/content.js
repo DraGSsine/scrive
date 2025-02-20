@@ -4,7 +4,6 @@ window.addEventListener("message", function (event) {
   if (event.source != window) return;
 
   if (event.data.type && event.data.type == "FROM_PAGE") {
-    console.log("Content script received message: " + event.data.token);
     if (!event.data.token) chrome.storage.local.remove(TOKEN_KEY);
     else chrome.storage.local.set({ [TOKEN_KEY]: event.data.token });
   }
@@ -12,7 +11,6 @@ window.addEventListener("message", function (event) {
 
 const getAuthToken = async () => {
   const result = await chrome.storage.local.get([TOKEN_KEY]);
-  console.log("Auth token:", result[TOKEN_KEY]);
   return result[TOKEN_KEY];
 };
 
@@ -171,7 +169,6 @@ function observeTextboxes() {
             }
           );
         });
-        console.log("Response:", res);
         const { message } = res.data;
         await simulateTyping(message, textbox);
       } catch (error) {
