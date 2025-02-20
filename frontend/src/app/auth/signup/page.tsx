@@ -7,10 +7,9 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { Loader2, Lock, Mail, User } from "lucide-react";
 import GoogleAuthButton from "../GoogleAuthButton";
-import cookies from "js-cookie";
 import { z } from "zod";
 import { useState } from "react";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
 import { signupSchema } from "@/lib/validation";
 import { toast } from "@/hooks/use-toast";
 import Link from "next/link";
@@ -33,7 +32,7 @@ export default function SignupPage() {
       );
       return response.data;
     },
-    onSuccess: (data) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["user"] });
       router.push("/");
       toast({

@@ -9,7 +9,7 @@ import { Loader2, Mail, Lock } from "lucide-react";
 import GoogleAuthButton from "../GoogleAuthButton";
 import { z } from "zod";
 import { useState } from "react";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
 import { toast } from "@/hooks/use-toast";
 import Link from "next/link";
 import { api } from "@/lib/axios";
