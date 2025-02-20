@@ -4,11 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import cookies from "js-cookie";
 import { useUserInfo } from "@/lib/queries";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Logo from "../landing/logo";
+import { useMutation } from "@tanstack/react-query";
+import { api } from "@/lib/axios";
 
 const routes = [
   {
@@ -52,8 +53,11 @@ export function Sidebar() {
 
 function SidebarContent() {
   const pathname = usePathname();
-  const handleLogout = () => {
-    cookies.remove("token");
+  const { mutate } = useMutation({
+    mutationFn: async () => await api.post("/auth/signout"),
+  });
+  const handleSignOut = () => {
+    mutate();
     if (typeof window !== "undefined")
       window.postMessage({ type: "FROM_PAGE", token: null }, "*");
     window.location.href = "/";
@@ -126,11 +130,11 @@ function SidebarContent() {
           </div>
 
           <Button
-            onClick={handleLogout}
+            onClick={handleSignOut}
             variant="ghost"
             className="w-full justify-between px-4 py-3 text-neutral-600 bg-neutral-50 border border-neutral-200 hover:bg-neutral-100 hover:text-neutral-900"
           >
-            <span className="font-medium">Logout</span>
+            <span className="font-medium">SignOut</span>
             <LogOut className="w-5 h-5" />
           </Button>
         </div>

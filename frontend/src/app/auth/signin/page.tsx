@@ -7,12 +7,12 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { Loader2, Mail, Lock } from "lucide-react";
 import GoogleAuthButton from "../GoogleAuthButton";
-import cookies from "js-cookie";
 import { z } from "zod";
 import { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { toast } from "@/hooks/use-toast";
 import Link from "next/link";
+import { api } from "@/lib/axios";
 
 const signinSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -30,14 +30,13 @@ export default function SigninPage() {
 
   const { mutate, isPending } = useMutation({
     mutationFn: async (data: SigninFormData) => {
-      const response = await axios.post(
+      const response = await api.post(
         `${process.env.NEXT_PUBLIC_API_URL}/auth/signin`,
         data
       );
       return response.data;
     },
-    onSuccess: (data) => {
-      cookies.set("token", data.access_token);
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["user"] });
       router.push("/");
       toast({
@@ -46,7 +45,7 @@ export default function SigninPage() {
     },
     onError: (error: AxiosError<{ message: string }>) => {
       toast({
-        description: error.response?.data?.message || 'An error occurred',
+        description: error.response?.data?.message || "An error occurred",
         variant: "destructive",
       });
     },
@@ -114,7 +113,10 @@ export default function SigninPage() {
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
             <div>
-              <Label htmlFor="email" className="text-sm font-medium text-gray-700">
+              <Label
+                htmlFor="email"
+                className="text-sm font-medium text-gray-700"
+              >
                 Email
               </Label>
               <div className="relative h-16 mt-1.5">
@@ -125,7 +127,9 @@ export default function SigninPage() {
                     type="email"
                     placeholder="you@example.com"
                     className={`h-11 rounded-xl bg-white border-gray-200 text-zinc-800 placeholder:text-gray-400 focus-visible:ring-violet-500 focus-visible:ring-2 focus-visible:border-violet-500 pl-11 ${
-                      errors.email ? "border-red-500 focus-visible:ring-red-500" : ""
+                      errors.email
+                        ? "border-red-500 focus-visible:ring-red-500"
+                        : ""
                     }`}
                   />
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -140,7 +144,10 @@ export default function SigninPage() {
 
             {/* Password Input */}
             <div>
-              <Label htmlFor="password" className="text-sm font-medium text-gray-700">
+              <Label
+                htmlFor="password"
+                className="text-sm font-medium text-gray-700"
+              >
                 Password
               </Label>
               <div className="relative h-16 mt-1.5">
@@ -151,7 +158,9 @@ export default function SigninPage() {
                     type="password"
                     placeholder="••••••••"
                     className={`h-11 rounded-xl bg-white border-gray-200 text-zinc-800 placeholder:text-gray-400 focus-visible:ring-violet-500 focus-visible:ring-2 focus-visible:border-violet-500 pl-11 ${
-                      errors.password ? "border-red-500 focus-visible:ring-red-500" : ""
+                      errors.password
+                        ? "border-red-500 focus-visible:ring-red-500"
+                        : ""
                     }`}
                   />
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />

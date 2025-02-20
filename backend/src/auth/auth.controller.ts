@@ -12,9 +12,16 @@ import {
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import { ConfigService } from '@nestjs/config';
+import { CookieOptions, Response } from 'express';
 
 @Controller('auth')
 export class AuthController {
+  private resHeaders: CookieOptions = {
+    domain: process.env.PROD === 'true' ? '.scrive.com' : 'localhost',
+    sameSite: process.env.PROD === 'true' ? 'none' : 'lax',
+    secure: process.env.PROD === 'true' ? true : false,
+    httpOnly: true,
+  };
   constructor(
     private authService: AuthService,
     private configService: ConfigService,
@@ -22,18 +29,33 @@ export class AuthController {
 
   @Post('signin')
   @UseGuards(AuthGuard('local'))
-  async signIn(@Req() req) {
-    return this.authService.signin(req.user);
+  async signIn(
+    @Body() body: { email: string; password: string },
+    @Res() res: Response,
+  ) {
+    const user = await this.authService.validateUserWithPassword(
+      body.email,
+      body.password,
+    );
+    if (!user) throw new BadRequestException('Invalid email or password');
+    const { token } = await this.authService.signin(user);
+    res.cookie('token', token, this.resHeaders);
+    res.json({ message: 'success' });
   }
 
   @Post('signup')
-  async signUp(@Body() body: { email: string; password: string }) {
+  async signUp(
+    @Body() body: { email: string; password: string },
+    @Res() res: Response,
+  ) {
     try {
       const user = await this.authService.createUserWithPassword(
         body.email,
         body.password,
       );
-      return this.authService.signin(user);
+      const { token } = await this.authService.signin(user);
+      res.cookie('token', token, this.resHeaders);
+      res.json({ message: 'success' });
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -46,14 +68,15 @@ export class AuthController {
   @Get('google/callback')
   @UseGuards(AuthGuard('google'))
   async googleAuthRedirect(@Req() req, @Res() res) {
-    const { access_token } = await this.authService.signin(req.user);
+    const { token } = await this.authService.signin(req.user);
     const redirectUrl = this.configService.get<string>('FRONTEND_URL');
-    res.redirect(`${redirectUrl}/auth/signin?token=${access_token}`);
+    res.cookie('token', token, this.resHeaders);
+    res.redirect(`${redirectUrl}/auth/signin`);
   }
 
-  @Get('me')
-  @UseGuards(AuthGuard('jwt'))
-  async me(@Req() req) {
-    return req.user;
+  @Post('signout')
+  signOut(@Res() res: Response) {
+    res.clearCookie('token', this.resHeaders);
+    res.json({ message: 'success' });
   }
 }

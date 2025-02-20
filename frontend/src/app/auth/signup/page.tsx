@@ -14,6 +14,7 @@ import axios, { AxiosError } from "axios";
 import { signupSchema } from "@/lib/validation";
 import { toast } from "@/hooks/use-toast";
 import Link from "next/link";
+import { api } from "@/lib/axios";
 
 type SignupFormData = z.infer<typeof signupSchema>;
 
@@ -26,21 +27,20 @@ export default function SignupPage() {
 
   const { mutate, isPending } = useMutation({
     mutationFn: async (data: SignupFormData) => {
-      const response = await axios.post(
+      const response = await api.post(
         `${process.env.NEXT_PUBLIC_API_URL}/auth/signup`,
         data
       );
       return response.data;
     },
     onSuccess: (data) => {
-      cookies.set("token", data.access_token);
       queryClient.invalidateQueries({ queryKey: ["user"] });
       router.push("/");
       toast({
         description: "Account created successfully!",
       });
     },
-    onError: (error: AxiosError<{message:string}>) => {
+    onError: (error: AxiosError<{ message: string }>) => {
       toast({
         description: error?.response?.data.message,
         variant: "destructive",
@@ -112,7 +112,10 @@ export default function SignupPage() {
           <div>
             {/* Name Input */}
             <div>
-              <Label htmlFor="name" className="text-sm font-medium text-gray-700">
+              <Label
+                htmlFor="name"
+                className="text-sm font-medium text-gray-700"
+              >
                 Full Name
               </Label>
               <div className="relative h-16 mt-1.5">
@@ -122,7 +125,9 @@ export default function SignupPage() {
                     name="name"
                     placeholder="John Doe"
                     className={`h-11 rounded-xl bg-white border-gray-200 text-zinc-800 placeholder:text-gray-400 focus-visible:ring-violet-500 focus-visible:ring-2 focus-visible:border-violet-500 pl-11 ${
-                      errors.displayname ? "border-red-500 focus-visible:ring-red-500" : ""
+                      errors.displayname
+                        ? "border-red-500 focus-visible:ring-red-500"
+                        : ""
                     }`}
                     required
                   />
@@ -138,7 +143,10 @@ export default function SignupPage() {
 
             {/* Email Input */}
             <div>
-              <Label htmlFor="email" className="text-sm font-medium text-gray-700">
+              <Label
+                htmlFor="email"
+                className="text-sm font-medium text-gray-700"
+              >
                 Email
               </Label>
               <div className="relative h-16 mt-1.5">
@@ -149,7 +157,9 @@ export default function SignupPage() {
                     type="email"
                     placeholder="you@example.com"
                     className={`h-11 rounded-xl bg-white border-gray-200 text-zinc-800 placeholder:text-gray-400 focus-visible:ring-violet-500 focus-visible:ring-2 focus-visible:border-violet-500 pl-11 ${
-                      errors.email ? "border-red-500 focus-visible:ring-red-500" : ""
+                      errors.email
+                        ? "border-red-500 focus-visible:ring-red-500"
+                        : ""
                     }`}
                   />
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -164,7 +174,10 @@ export default function SignupPage() {
 
             {/* Password Input */}
             <div>
-              <Label htmlFor="password" className="text-sm font-medium text-gray-700">
+              <Label
+                htmlFor="password"
+                className="text-sm font-medium text-gray-700"
+              >
                 Password
               </Label>
               <div className="relative h-16 mt-1.5">
@@ -175,7 +188,9 @@ export default function SignupPage() {
                     type="password"
                     placeholder="••••••••"
                     className={`h-11 rounded-xl bg-white border-gray-200 text-zinc-800 placeholder:text-gray-400 focus-visible:ring-violet-500 focus-visible:ring-2 focus-visible:border-violet-500 pl-11 ${
-                      errors.password ? "border-red-500 focus-visible:ring-red-500" : ""
+                      errors.password
+                        ? "border-red-500 focus-visible:ring-red-500"
+                        : ""
                     }`}
                   />
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
