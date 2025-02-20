@@ -6,14 +6,15 @@ import {
   ArrowRight,
   MoreHorizontal,
   Star,
-  ImageIcon,
-  Link,
+  Image as ImageIcon,
+  Link as LinkIcon,
   SmilePlus,
   AlertCircle,
   CheckCircle2,
 } from "lucide-react";
 import Trusted from "./trusted";
 import Image from "next/image";
+import Link from "next/link";
 function Hero() {
   return (
     <div className="relative flex items-center justify-center py-20 lg:py-32 overflow-hidden">
@@ -63,22 +64,21 @@ function Hero() {
             </div>
 
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <Button
-                variant="outline"
-                size="lg"
-                className="w-full sm:w-auto h-12 px-6 font-medium gap-2 rounded-full border-2 hover:border-violet-200 hover:bg-white/50 hover:text-violet-600 transition-all duration-200"
+              <Link
+                href="/auth/signup"
+                className=" bg-white/50 w-full flex items-center justify-center sm:w-auto h-12 px-6 font-medium gap-2 rounded-full border-2 hover:border-violet-200 hover:bg-white/50 hover:text-violet-600 transition-all duration-500"
               >
                 <Chrome className="w-5 h-5" />
                 Get it for Chrome
                 <span className="hidden sm:inline"> - It&apos;s Free</span>
-              </Button>
-              <Button
-                size="lg"
-                className="w-full sm:w-auto h-12 px-6 rounded-full font-medium bg-violet-600 hover:bg-violet-700 text-white shadow-lg shadow-violet-200 hover:shadow-xl hover:shadow-violet-200 transition-all duration-200 group"
+              </Link>
+              <Link
+                href="/auth/signup"
+                className="w-full flex items-center justify-center sm:w-auto h-12 px-6 rounded-full font-medium bg-violet-600 hover:bg-violet-700 text-white shadow-lg shadow-violet-200 hover:shadow-xl hover:shadow-violet-200 transition-all duration-500 group"
               >
                 Try it Free
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              </Link>
             </div>
 
             <div className="mt-12">
@@ -101,7 +101,6 @@ const HeroLeft = () => {
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
 
-  
   useEffect(() => {
     const messages = [
       "yo, i want this job. just hit me up with what i need to do next, no messing around.",
@@ -261,7 +260,7 @@ const HeroLeft = () => {
               <ImageIcon className="w-5 h-5 text-gray-600" />
             </button>
             <button className="p-2 hover:bg-gray-100 rounded-xl transition-colors">
-              <Link className="w-5 h-5 text-gray-600" />
+              <LinkIcon className="w-5 h-5 text-gray-600" />
             </button>
             <button className="p-2 hover:bg-gray-100 rounded-xl transition-colors">
               <SmilePlus className="w-5 h-5 text-gray-600" />

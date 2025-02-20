@@ -107,7 +107,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
         <Link
           href='/auth/signup'
-          className={`w-full py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] ${
+          className={`w-full py-3 block text-center rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] ${
             isPopular
               ? "bg-white text-violet-600 hover:bg-zinc-50"
               : "bg-violet-600 text-white hover:bg-violet-700"

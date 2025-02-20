@@ -18,13 +18,13 @@ const Footer = () => {
           </p>
         </div>
         <div className="mt-8 flex flex-col items-center gap-4">
-          <Button
-            size="lg"
-            className="h-14 px-8 rounded-full font-medium bg-violet-600 hover:bg-violet-500 text-white shadow-lg shadow-violet-200 hover:shadow-xl hover:shadow-violet-200 transition-all duration-200 group"
+          <Link 
+            href="/auth/signup"
+            className=" flex items-center justify-center h-14 px-8 rounded-full font-medium bg-violet-600 hover:bg-violet-500 text-white shadow-lg shadow-violet-200 hover:shadow-xl hover:shadow-violet-200 transition-all duration-200 group"
           >
             Try It Free
             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          </Link>
         </div>
       </section>
 

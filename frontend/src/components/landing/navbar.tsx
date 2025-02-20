@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import Logo from "./logo";
+import Link from "next/link";
 
 const links = {
   testimonials: "Testimonials",
@@ -33,7 +34,7 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300  ",
         hasScrolled
           ? "bg-white/70 backdrop-blur-md shadow-sm"
           : "bg-transparent"
@@ -83,8 +84,8 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden"
+          <Button
+            className="md:hidden bg-white hover:bg-white "
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
@@ -92,7 +93,7 @@ const Navbar = () => {
             ) : (
               <Menu className="h-6 w-6 text-zinc-700" />
             )}
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -104,20 +105,20 @@ const Navbar = () => {
         )}
       >
         <div className="flex h-20 items-center justify-end px-4">
-          <button onClick={() => setIsMenuOpen(false)}>
+          <Button className=" bg-white hover:bg-white" onClick={() => setIsMenuOpen(false)}>
             <X className="h-6 w-6 text-zinc-700" />
-          </button>
+          </Button>
         </div>
         <div className="px-4 pb-6">
           {Object.entries(links).map(([key, value]) => (
-            <a
+            <Link
               key={key}
               href={`#${key}`}
               className="block px-3 py-2 text-base text-zinc-600 hover:text-zinc-800 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               {value}
-            </a>
+            </Link>
           ))}
           <div className="mt-6 space-y-4 px-3">
             <Button
@@ -125,13 +126,13 @@ const Navbar = () => {
               className="w-full justify-center text-violet-500 hover:text-violet-600 hover:bg-violet-50 border border-violet-200"
               asChild
             >
-              <a href="/auth/signin">Sign In</a>
+              <Link href="/auth/signin">Sign In</Link>
             </Button>
             <Button
               className="w-full bg-violet-500 hover:bg-violet-600 text-white"
               asChild
             >
-              <a href="/auth/signup">Try It Free</a>
+              <Link href="/auth/signup">Try It Free</Link>
             </Button>
           </div>
         </div>
