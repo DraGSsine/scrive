@@ -40,7 +40,7 @@ export class AuthController {
     if (!user) throw new BadRequestException('Invalid email or password');
     const { token } = await this.authService.signin(user);
     res.cookie('token', token, this.resHeaders);
-    res.json({ message: 'success' });
+    res.json({ token });
   }
 
   @Post('signup')
@@ -55,7 +55,7 @@ export class AuthController {
       );
       const { token } = await this.authService.signin(user);
       res.cookie('token', token, this.resHeaders);
-      res.json({ message: 'success' });
+      res.json({ token });
     } catch (error) {
       throw new BadRequestException(error.message);
     }
