@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const GoogleAuthButton = ({ isPending = false }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -15,7 +15,16 @@ const GoogleAuthButton = ({ isPending = false }) => {
     }
     window.location.href = `${apiUrl}/auth/google`;
   }, []);
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
 
+    if (token) {
+      if (typeof window !== "undefined")
+        window.postMessage({ type: "FROM_PAGE", token }, "*");
+      window.location.href = "/dashboard";
+    }
+  }, []);
   return (
     <Button
       variant="outline"
@@ -24,13 +33,11 @@ const GoogleAuthButton = ({ isPending = false }) => {
       disabled={isPending}
     >
       <GoogleIcon />
-      {
-        isLoading ? (
-          <Loader2 className="h-5 w-5 animate-spin" />
-        ) : (
-          <span className="relative">Continue with Google</span>
-        )
-      }
+      {isLoading ? (
+        <Loader2 className="h-5 w-5 animate-spin" />
+      ) : (
+        <span className="relative">Continue with Google</span>
+      )}
     </Button>
   );
 };

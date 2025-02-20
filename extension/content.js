@@ -12,13 +12,13 @@ window.addEventListener("message", function (event) {
 
 const getAuthToken = async () => {
   const result = await chrome.storage.local.get([TOKEN_KEY]);
+  console.log("Auth token:", result[TOKEN_KEY]);
   return result[TOKEN_KEY];
 };
 
 // Function to insert the generate message button
 function insertButton(sendButton, inMail) {
   sendButton.parentElement.style.position = "relative";
-  console.log("inMail", inMail);
   let button = document.createElement("button");
   button.className = "generateMessageBtn";
   button.type = "button";

@@ -36,7 +36,9 @@ export default function SigninPage() {
       );
       return response.data;
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
+      if (typeof window !== "undefined")
+        window.postMessage({ type: "FROM_PAGE", token:data.token }, "*");
       queryClient.invalidateQueries({ queryKey: ["user"] });
       router.push("/");
       toast({

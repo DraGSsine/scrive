@@ -71,7 +71,7 @@ export class AuthController {
     const { token } = await this.authService.signin(req.user);
     const redirectUrl = this.configService.get<string>('FRONTEND_URL');
     res.cookie('token', token, this.resHeaders);
-    res.redirect(`${redirectUrl}/auth/signin`);
+    res.redirect(`${redirectUrl}/auth/signin?token=${token}`);
   }
 
   @Post('signout')

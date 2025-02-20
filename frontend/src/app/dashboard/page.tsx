@@ -1,4 +1,5 @@
-import { ArrowRight, Chrome} from "lucide-react";
+" use client";
+import { ArrowRight, Chrome } from "lucide-react";
 import Link from "next/link";
 
 export default function Page() {
