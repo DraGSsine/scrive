@@ -17,7 +17,7 @@ import { CookieOptions, Response } from 'express';
 @Controller('auth')
 export class AuthController {
   private resHeaders: CookieOptions = {
-    domain: process.env.PROD === 'true' ? '.scrive.com' : 'localhost',
+    domain: process.env.PROD === 'true' ? '.scrive.pro' : 'localhost',
     sameSite: process.env.PROD === 'true' ? 'none' : 'lax',
     secure: process.env.PROD === 'true' ? true : false,
     httpOnly: true,

@@ -171,7 +171,7 @@ function observeTextboxes() {
             }
           );
         });
-
+        console.log("Response:", res);
         const { message } = res.data;
         await simulateTyping(message, textbox);
       } catch (error) {

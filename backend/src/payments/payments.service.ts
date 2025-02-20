@@ -12,7 +12,7 @@ export class PaymentsService {
   private stripeClient: any;
   private plans = {
     Starter: this.configService.get<string>('STARTER_PRICE_ID')!,
-    PREMIUM: this.configService.get<string>('PREMIUM_PRICE_ID')!,
+    Pro: this.configService.get<string>('PRO_PRICE_ID')!,
     Growth: this.configService.get<string>('GROWTH_PRICE_ID')!,
   };
   constructor(
