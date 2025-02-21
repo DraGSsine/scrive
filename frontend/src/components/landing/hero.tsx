@@ -16,7 +16,7 @@ import Image from "next/image";
 import Link from "next/link";
 function Hero() {
   return (
-    <div className="relative flex items-center justify-center py-20 lg:py-32 overflow-hidden">
+    <div className="relative flex items-center justify-center pt-20 h-screen overflow-hidden">
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-violet-50 to-pink-50 pointer-events-none" />
 
@@ -65,7 +65,7 @@ function Hero() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Link
                 href="/auth/signup"
-                className=" bg-white/50 w-full flex items-center justify-center sm:w-auto h-12 px-6 font-medium gap-2 rounded-full border-2 hover:border-violet-200 hover:bg-white/50 hover:text-violet-600 transition-all duration-500"
+                className="w-full bg-white/ flex items-center justify-center sm:w-auto h-12 px-6 font-medium gap-2 rounded-full border-2 hover:border-violet-200 hover:bg-white/50 hover:text-violet-600 transition-all duration-500"
               >
                 <Chrome className="w-5 h-5" />
                 Get it for Chrome
@@ -73,7 +73,7 @@ function Hero() {
               </Link>
               <Link
                 href="/auth/signup"
-                className="w-full flex items-center justify-center sm:w-auto h-12 px-6 rounded-full font-medium bg-violet-600 hover:bg-violet-700 text-white shadow-lg shadow-violet-200 hover:shadow-xl hover:shadow-violet-200 transition-all duration-500 group"
+                className="w-full flex items-center  justify-center sm:w-auto h-12 px-6 rounded-full font-medium bg-violet-600 hover:bg-violet-700 text-white shadow-lg shadow-violet-200 hover:shadow-xl hover:shadow-violet-200 transition-all duration-500 group"
               >
                 Try it Free
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -102,8 +102,8 @@ const HeroLeft = () => {
 
   useEffect(() => {
     const messages = [
-      "yo, i want this job. just hit me up with what i need to do next, no messing around.",
-      "Hi Emma, thank you for reaching out. I am very interested in the opportunity and would appreciate further details regarding the role and next steps at your earliest convenience.",
+      "Hey Emma, thanks for the message. I love Google and I'm super pumped to join. Let me know the details soon",
+      "Hi Emma, thanks for reaching out. I'm truly interested in the opportunity and would love to hear more about the role and next steps whenever you have a moment.",
     ];
     let isActive = true;
 
@@ -197,10 +197,14 @@ const HeroLeft = () => {
             </div>
             <div className="space-y-2">
               <p className="bg-zinc-100 rounded-2xl rounded-tl-none px-4 py-2.5 text-gray-700 inline-block max-w-md shadow-sm">
-                Hey Alex, I recently came across your outstanding UX work, and
-                I’m truly impressed by your creativity. I’d love to explore how
-                your talent might fit into our growing design team at Google.
-                Would you be open to chatting about potential opportunities?
+                Hi Alex, <br />
+                I truly admire your exceptional work in design! Your creative
+                flair aligns perfectly with our vision at Google. Would you be
+                open to a discussion about potential roles with our innovative
+                design team?
+                <br />
+                <br />
+                Best regards
               </p>
             </div>
           </div>

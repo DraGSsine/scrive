@@ -6,7 +6,10 @@ import Image from "next/image";
 
 const TestimonialSection = () => {
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-br from-fuchsia-200/50 to-violet-200/50">
+    <section
+      id="testimonials"
+      className="py-20 bg-gradient-to-br from-fuchsia-200/50 to-violet-200/50"
+    >
       <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-bold mb-12 text-slate-800">
         What People Are Saying
       </h2>
@@ -15,17 +18,19 @@ const TestimonialSection = () => {
         <div className="relative bg-white rounded-3xl p-6 sm:p-12 shadow-[0_0_50px_-12px_rgba(0,0,0,0.1)] border border-zinc-200">
           {/* Quote Icon */}
           <div className="absolute top-6 sm:top-12 left-6 sm:left-12">
-            <Quote size={32} className="text-fuchsia-500 opacity-80 fill-fuchsia-500" />
+            <Quote
+              size={32}
+              className="text-fuchsia-500 opacity-80 fill-fuchsia-500"
+            />
           </div>
 
           {/* Testimonial Content */}
           <div className="pt-12 sm:pt-16 pl-0 sm:pl-4">
             <h4 className="text-xl sm:text-2xl font-bold text-fuchsia-500 mb-4">
-            &quot;Game-Changer for Me&quot;
+              &quot;Game-Changer for Me&quot;
             </h4>
             <p className="text-gray-700 text-base sm:text-lg mb-8 sm:mb-12 leading-relaxed">
-              I was able to craft perfect responses and refine my drafts for
-              maximum impact. The AI-powered messaging is a game-changer for me.
+              I&apos;ve been using Scrive for a few weeks, and it&apos;s been a true game-changer. I&apos;m more productive and spend far less time on paperwork. I&apos;d recommend it to anyone looking to get more done.
             </p>
 
             {/* Author Info */}

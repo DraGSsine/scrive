@@ -13,7 +13,7 @@ const Footer = () => {
             Ready to Transform Your Communications?
           </h2>
           <p className="mt-4 text-xl font-medium lg:text-2xl text-zinc-600">
-            Join thousands of professionals using AI to craft perfect messages.
+            Get started with scrive today and craft perfect responses every time
           </p>
         </div>
         <div className="mt-8 flex flex-col items-center gap-4">
@@ -33,8 +33,8 @@ const Footer = () => {
           <div className="space-y-4">
             <Logo size={30} mode="dark" />
             <p className="text-zinc-500 text-sm max-w-sm">
-              AI-powered messaging for professionals. Craft perfect responses
-              every time.
+              Your intelligent companion for crafting the perfect LinkedIn
+              responses, powered by advanced AI
             </p>
           </div>
 
@@ -64,12 +64,14 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-4">
               <Link
-                href="https://linkedin.com/company/yassineouchen"
+                target="_blank"
+                href="https://www.linkedin.com/in/yassineouchen/"
                 className="text-zinc-400 hover:text-blue-500 transition-colors"
               >
                 <Linkedin className="w-5 h-5" />
               </Link>
               <Link
+                target="_blank"
                 href="https://twitter.com/yassin_ouchn"
                 className="text-zinc-400 hover:text-blue-500 transition-colors"
               >
