@@ -75,7 +75,7 @@ const Navbar = () => {
                     asChild
                   >
                     <NavigationMenuLink href="/auth/signup">
-                      Try It Free
+                      Try it free
                     </NavigationMenuLink>
                   </Button>
                 </NavigationMenuItem>
@@ -132,7 +132,7 @@ const Navbar = () => {
               className="w-full bg-violet-500 hover:bg-violet-600 text-white"
               asChild
             >
-              <Link href="/auth/signup">Try It Free</Link>
+              <Link href="/auth/signup">Try it free</Link>
             </Button>
           </div>
         </div>

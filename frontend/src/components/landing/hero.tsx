@@ -69,13 +69,13 @@ function Hero() {
               >
                 <Chrome className="w-5 h-5" />
                 Get it for Chrome
-                <span className="hidden sm:inline"> - It&apos;s Free</span>
+                <span className="hidden sm:inline">Try it free</span>
               </Link>
               <Link
                 href="/auth/signup"
                 className="w-full flex items-center  justify-center sm:w-auto h-12 px-6 rounded-full font-medium bg-violet-600 hover:bg-violet-700 text-white shadow-lg shadow-violet-200 hover:shadow-xl hover:shadow-violet-200 transition-all duration-500 group"
               >
-                Try it Free
+                Try it free
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
