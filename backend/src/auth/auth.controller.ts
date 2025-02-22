@@ -13,6 +13,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import { ConfigService } from '@nestjs/config';
 import { CookieOptions, Response } from 'express';
+import { MailService } from 'src/mail/mail.service';
 
 @Controller('auth')
 export class AuthController {
@@ -25,6 +26,7 @@ export class AuthController {
   constructor(
     private authService: AuthService,
     private configService: ConfigService,
+    private mailService: MailService,
   ) {}
 
   @Post('signin')
@@ -44,21 +46,30 @@ export class AuthController {
   }
 
   @Post('signup')
-  async signUp(
-    @Body() body: { email: string; password: string },
-    @Res() res: Response,
-  ) {
+  async signUp(@Body() body: { email: string }) {
     try {
-      const user = await this.authService.createUserWithPassword(
-        body.email,
-        body.password,
-      );
-      const { token } = await this.authService.signin(user);
-      res.cookie('token', token, this.resHeaders);
-      res.json({ token });
+      const otp = Math.floor(100000 + Math.random() * 900000).toString();
+      await this.mailService.sendOtp(body.email, otp);
+      return { message: 'success' };
     } catch (error) {
       throw new BadRequestException(error.message);
     }
+  }
+
+  @Post('verify')
+  async verifyOtp(
+    @Body() body: { email: string; otp: string },
+    @Res() res: Response,
+  ) {
+    const isValid = await this.mailService.validateOtp(body.email, body.otp);
+    if (!isValid) throw new BadRequestException('Invalid OTP');
+    const user = await this.authService.createUserWithPassword(
+      body.email,
+      body.otp,
+    );
+    const { token } = await this.authService.signin(user);
+    res.cookie('token', token, this.resHeaders);
+    res.json({ token });
   }
 
   @Get('google')

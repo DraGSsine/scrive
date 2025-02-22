@@ -7,9 +7,10 @@ import { AuthService } from './auth.service';
 import { GoogleStrategy } from './strategies/google.strategy';
 import { AuthController } from './auth.controller';
 import { LocalStrategy } from './strategies/local.strategy';
+import { MailModule } from 'src/mail/mail.module';
 
 @Module({
-  imports: [UsersModule, PassportModule],
+  imports: [UsersModule, PassportModule,MailModule],
   providers: [AuthService, GoogleStrategy, LocalStrategy],
   controllers: [AuthController],
 })
