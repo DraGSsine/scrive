@@ -14,38 +14,39 @@ import {
 import Trusted from "./trusted";
 import Image from "next/image";
 import Link from "next/link";
+
 function Hero() {
   return (
-    <div className="relative flex items-center justify-center pt-20 h-screen overflow-hidden">
+    <div className="relative flex items-center justify-center py-20 md:py-24 min-h-screen overflow-hidden">
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-violet-50 to-pink-50 pointer-events-none" />
 
       {/* Floating shapes */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -left-4 top-20 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-float" />
+        <div className="absolute -left-4 top-20 w-36 md:w-72 h-36 md:h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-float" />
         <div
-          className="absolute -right-4 top-40 w-72 h-72 bg-violet-200 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-float"
+          className="absolute -right-4 top-40 w-36 md:w-72 h-36 md:h-72 bg-violet-200 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-float"
           style={{ animationDelay: "2s" }}
         />
         <div
-          className="absolute left-20 bottom-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-float"
+          className="absolute left-20 bottom-20 w-36 md:w-72 h-36 md:h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-float"
           style={{ animationDelay: "4s" }}
         />
       </div>
 
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
           {/* Left Column - Text Content */}
           <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
-            <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 backdrop-blur-sm border border-blue-100 shadow-sm">
+            <div className="space-y-4 md:space-y-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/50 backdrop-blur-sm border border-blue-100 shadow-sm">
                 <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-sm font-medium text-zinc-600">
+                <span className="text-xs md:text-sm font-medium text-zinc-600">
                   write better replies
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-zinc-800 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-zinc-800 leading-tight">
                 Write Better{" "}
                 <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
                   LinkedIn
@@ -55,39 +56,39 @@ function Hero() {
                   Messages
                 </span>
               </h1>
-              <p className="text-lg sm:text-xl text-zinc-600 max-w-xl mx-auto lg:mx-0">
+              <p className="text-base md:text-lg lg:text-xl text-zinc-600 max-w-xl mx-auto lg:mx-0">
                 Stuck on what to say? Our tool helps you create friendly, custom
                 LinkedIn messages that get replies. Say goodbye to awkward
                 introductions!
               </p>
             </div>
 
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <div className="mt-6 md:mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 md:gap-4">
               <Link
                 href="https://chromewebstore.google.com/detail/hfadoenckgoahdcacngfebieckmhemef?utm_source=item-share-cp"
-                target='_blank'
-                className="w-full bg-white/50 flex items-center justify-center sm:w-auto h-12 px-6 font-medium gap-2 rounded-full border-2 hover:border-violet-200 hover:bg-white/50 hover:text-violet-600 transition-all duration-500"
+                target="_blank"
+                className="w-full sm:w-auto h-10 md:h-12 px-4 md:px-6 text-sm md:text-base font-medium flex items-center justify-center gap-2 rounded-full border-2 hover:border-violet-200 bg-white/50 hover:bg-white/80 hover:text-violet-600 transition-all duration-500"
               >
-                <Chrome className="w-5 h-5" />
-                Get it for Chrome
-                <span className="hidden sm:inline">Try it free</span>
+                <Chrome className="w-4 h-4 md:w-5 md:h-5" />
+                <span className="whitespace-nowrap">Get it for Chrome</span>
+                <span className="hidden sm:inline ml-1">- Try it free</span>
               </Link>
               <Link
                 href="/auth/signup"
-                className="w-full flex items-center  justify-center sm:w-auto h-12 px-6 rounded-full font-medium bg-violet-600 hover:bg-violet-700 text-white shadow-lg shadow-violet-200 hover:shadow-xl hover:shadow-violet-200 transition-all duration-500 group"
+                className="w-full sm:w-auto h-10 md:h-12 px-4 md:px-6 text-sm md:text-base rounded-full font-medium flex items-center justify-center bg-violet-600 hover:bg-violet-700 text-white shadow-lg shadow-violet-200 hover:shadow-xl hover:shadow-violet-200 transition-all duration-500 group"
               >
                 Try it free
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 
-            <div className="mt-12">
-              <Trusted className="text-sm text-zinc-800" />
+            <div className="mt-8 md:mt-12">
+              <Trusted className="text-xs md:text-sm text-zinc-800" />
             </div>
           </div>
 
           {/* Right Column - Chat UI */}
-          <div className="relative w-full max-w-2xl mx-auto lg:mx-0">
+          <div className="relative w-full max-w-lg md:max-w-2xl mx-auto lg:mx-0 mt-8 lg:mt-0">
             <HeroLeft />
           </div>
         </div>
@@ -95,7 +96,6 @@ function Hero() {
     </div>
   );
 }
-
 const HeroLeft = () => {
   const [step, setStep] = useState(0);
   const [inputValue, setInputValue] = useState("");

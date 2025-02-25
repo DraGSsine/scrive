@@ -36,49 +36,53 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300  ",
         hasScrolled
-          ? "bg-white/70 backdrop-blur-md shadow-sm"
+          ? "bg-white/70 shadow-sm"
           : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-[9vh] items-center justify-between">
-        <Logo size={40} mode="dark" />
+        <div className="flex h-[10vh] items-center justify-between backdrop-blur-md">
+          <Logo size={40} mode="dark" />
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <NavigationMenu>
-              <NavigationMenuList className="flex items-center space-x-8">
-                {Object.entries(links).map(([key, value]) => (
-                  <NavigationMenuItem key={key}>
-                    <NavigationMenuLink
-                      href={`#${key}`}
-                      className="text-zinc-600 hover:text-zinc-800 transition-colors"
+              <NavigationMenuList>
+                <span className="flex items-center space-x-8">
+                  {Object.entries(links).map(([key, value]) => (
+                    <NavigationMenuItem key={key}>
+                      <NavigationMenuLink
+                        href={`#${key}`}
+                        className="text-zinc-600 hover:text-zinc-800 transition-colors"
+                      >
+                        {value}
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                  ))}
+                </span>
+                <span className=" flex gap-4 pl-14 ">
+                  <NavigationMenuItem>
+                    <Button
+                      variant="ghost"
+                      className="text-violet-500 hover:text-violet-500 bg-white/30 text-md font-semibold bg-white rounded-full border border-violet-400"
+                      asChild
                     >
-                      {value}
-                    </NavigationMenuLink>
+                      <NavigationMenuLink href="/auth/signin">
+                        Sign In
+                      </NavigationMenuLink>
+                    </Button>
                   </NavigationMenuItem>
-                ))}
-                <NavigationMenuItem>
-                  <Button
-                    variant="ghost"
-                    className="text-violet-500 hover:text-violet-500 bg-white/30 text-md font-semibold bg-white rounded-full border border-violet-400"
-                    asChild
-                  >
-                    <NavigationMenuLink href="/auth/signin">
-                      Sign In
-                    </NavigationMenuLink>
-                  </Button>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Button
-                    className="bg-violet-500 hover:bg-violet-600 rounded-full text-white text-md font-semibold"
-                    asChild
-                  >
-                    <NavigationMenuLink href="/auth/signup">
-                      Try it free
-                    </NavigationMenuLink>
-                  </Button>
-                </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <Button
+                      className="bg-violet-500 hover:bg-violet-600 rounded-full text-white text-md font-semibold"
+                      asChild
+                    >
+                      <NavigationMenuLink href="/auth/signup">
+                        Try it free
+                      </NavigationMenuLink>
+                    </Button>
+                  </NavigationMenuItem>{" "}
+                </span>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
@@ -105,7 +109,10 @@ const Navbar = () => {
         )}
       >
         <div className="flex h-20 items-center justify-end px-4">
-          <Button className=" bg-white hover:bg-white" onClick={() => setIsMenuOpen(false)}>
+          <Button
+            className=" bg-white hover:bg-white"
+            onClick={() => setIsMenuOpen(false)}
+          >
             <X className="h-6 w-6 text-zinc-700" />
           </Button>
         </div>
@@ -137,7 +144,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Backdrop */}
       {isMenuOpen && (
         <div
