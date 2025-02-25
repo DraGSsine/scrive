@@ -8,6 +8,11 @@
   --accent-light: #8b5cf6;
 }
 
+a {
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-block;
+}
 * {
   margin: 0;
   padding: 0;

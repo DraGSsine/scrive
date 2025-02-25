@@ -15,7 +15,7 @@ const checkLoginStatus = async () => {
     });
 
     const data = await response.json();
-    
+
     if (!response.ok) userInfo = null;
     else userInfo = data;
     updateUserInterface(userInfo);
@@ -83,39 +83,6 @@ const updateUserInterface = (userData) => {
 
 // Add event listeners
 document.addEventListener("DOMContentLoaded", () => {
-  // Google auth button
-  const googleButton = document.querySelector(".auth-button.google");
-  if (googleButton) {
-    googleButton.addEventListener("click", () => {
-      chrome.tabs.create({
-        url: "https://scrive.pro/auth/signup",
-      });
-    });
-  }
-
-  // Email auth button
-  const emailButton = document.querySelector(".auth-button.email");
-  if (emailButton) {
-    emailButton.addEventListener("click", () => {
-      chrome.tabs.create({
-        url: "https://scrive.pro/auth/signup",
-      });
-    });
-  }
-
-  // Terms and Privacy links
-  const links = document.querySelectorAll(".terms a");
-  links.forEach((link, index) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const url =
-        index === 0
-          ? "https://scrive.pro/terms"
-          : "https://scrive.pro/privacy";
-      chrome.tabs.create({ url });
-    });
-  });
-
   // Initialize
   checkLoginStatus();
 });
