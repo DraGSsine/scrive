@@ -64,7 +64,8 @@ function Hero() {
 
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Link
-                href="/auth/signup"
+                href="https://chromewebstore.google.com/detail/hfadoenckgoahdcacngfebieckmhemef?utm_source=item-share-cp"
+                target='_blank'
                 className="w-full bg-white/50 flex items-center justify-center sm:w-auto h-12 px-6 font-medium gap-2 rounded-full border-2 hover:border-violet-200 hover:bg-white/50 hover:text-violet-600 transition-all duration-500"
               >
                 <Chrome className="w-5 h-5" />
