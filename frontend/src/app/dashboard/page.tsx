@@ -1,8 +1,20 @@
-" use client";
+"use client";
+import { api } from "@/lib/axios";
+import { useQuery } from "@tanstack/react-query";
 import { ArrowRight, Chrome } from "lucide-react";
 import Link from "next/link";
 
 export default function Page() {
+  useQuery({
+    queryKey: ["token"],
+    queryFn: async () => {
+      const res = await api.get("/users/token");
+      console.log(res?.data?.token)
+      if (typeof window !== "undefined")
+        window.postMessage({ type: "FROM_PAGE", token: res?.data?.token }, "*");
+      return res.data;
+    },
+  });
   return (
     <main className="relative min-h-screen w-full overflow-x-hidden">
       {/* Background decorative elements */}

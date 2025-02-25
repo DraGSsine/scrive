@@ -68,9 +68,7 @@ export default function SignupPage() {
       );
       return response.data;
     },
-    onSuccess: (data) => {
-      if (typeof window !== "undefined")
-        window.postMessage({ type: "FROM_PAGE", token: data.token }, "*");
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["user"] });
       toast({
         description: "Account created successfully",

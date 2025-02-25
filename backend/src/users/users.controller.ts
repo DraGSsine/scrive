@@ -19,4 +19,10 @@ export class UsersController {
     }
     return await this.usersService.getUserInfo(req.user);
   }
+
+  @Get('token')
+  @UseGuards(JwtAuthGuard)
+  async getToken(@Req() req: any) {
+    return { token: req.cookies.token };
+  }
 }

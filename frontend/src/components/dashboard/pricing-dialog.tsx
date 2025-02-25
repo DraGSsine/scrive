@@ -158,7 +158,6 @@ const SubscriptionDialog = () => {
       });
     },
   });
-  console.log(data);
   if (data?.plan !== "none") return null;
 
   const handlePlanSelection = (selectedPlan: string) => {

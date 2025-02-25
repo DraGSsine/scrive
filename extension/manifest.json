@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "scrive",
-  "version": "2.0",
+  "version": "2.1",
   "description": "Helps you write better messages",
   "icons": {
     "16": "assets/logo.png",

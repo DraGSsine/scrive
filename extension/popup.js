@@ -1,12 +1,13 @@
 // Constants
-const TOKEN_KEY = "authToken";
+const TOKEN_KEY = "token";
 
 const checkLoginStatus = async () => {
   try {
     const result = await chrome.storage.local.get([TOKEN_KEY]);
     const token = result[TOKEN_KEY];
+    console.log(token)
     let userInfo = null;
-    document.cookie = `authToken=${token}; path=/; max-age=86400; secure`;
+    document.cookie = `token=${token}; path=/; max-age=86400; secure`;
     const loading = document.getElementById("loadingState");
     loading.classList.add("active");
     const response = await fetch("https://api.scrive.pro/users/info", {
