@@ -247,7 +247,7 @@ const HeroLeft = () => {
   }, []);
 
   return (
-    <div className="w-[90%] bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col">
+    <div className="w-full bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col">
       {/* Header */}
       <div className="py-3 px-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="flex items-center justify-between">
