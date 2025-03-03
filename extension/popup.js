@@ -10,7 +10,7 @@ const checkLoginStatus = async () => {
     document.cookie = `token=${token}; path=/; max-age=86400; secure`;
     const loading = document.getElementById("loadingState");
     loading.classList.add("active");
-    const response = await fetch("https://api.scrive.pro/users/info", {
+    const response = await fetch("http://localhost:5000/users/info", {
       method: "GET",
       credentials: "include",
     });

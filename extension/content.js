@@ -1,14 +1,11 @@
-const TOKEN_KEY = "token";
+const TOKEN_KEY = "authToken";
 
 window.addEventListener("message", function (event) {
   if (event.data.type && event.data.type == "FROM_PAGE")
-  {
-    console.log("----------------->",event.data.token)
     chrome.storage.local.set({ [TOKEN_KEY]: event.data.token });
-  }
 });
 
-const gettoken = async () => {
+const getAuthToken = async () => {
   const result = await chrome.storage.local.get([TOKEN_KEY]);
   return result[TOKEN_KEY];
 };
@@ -93,7 +90,7 @@ function observeTextboxes() {
     const button = insertButton(sendButton, inMail);
 
     button.onclick = async function (event) {
-      const token = await gettoken();
+      const token = await getAuthToken();
       if (!token) {
         alert("Please login to scrive to continue.");
         return console.error("No auth token found. Please log in to continue.");

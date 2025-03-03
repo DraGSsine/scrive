@@ -21,7 +21,7 @@
   "host_permissions": [
     "https://www.linkedin.com/*",
     "https://scrive.pro/*",
-    "https://api.scrive.pro/*"
+    "http://localhost:5000/*"
   ],
   "background": {
     "service_worker": "background.js",
