@@ -149,11 +149,12 @@ export function Hero() {
             {/* Video Container */}
             <div className="relative w-full aspect-video bg-black">
               <iframe
-                className="absolute w-full h-full"
-                src="https://youtu.be/atv88nZuP_s"
-                title="Scrive Demo"
+                className=" w-full h-full"
+                src="https://www.youtube.com/embed/atv88nZuP_s?si=ascLCj4TFw9GU_ea"
+                title="YouTube video player"
                 frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               ></iframe>
             </div>
@@ -286,8 +287,9 @@ const HeroLeft = () => {
               <span className="text-xs text-gray-500">2m</span>
             </div>
             <p className="bg-zinc-100 rounded-lg rounded-tl-none px-4 py-3 text-gray-700 inline-block max-w-full shadow-sm border border-gray-100">
-              Hi Alex, I&apos;ve been following your work and think you&apos;d be a great
-              fit for our team at Google. Could we chat about an opportunity?
+              Hi Alex, I&apos;ve been following your work and think you&apos;d
+              be a great fit for our team at Google. Could we chat about an
+              opportunity?
             </p>
           </div>
         </div>
