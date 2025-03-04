@@ -5,11 +5,6 @@ window.addEventListener("message", function (event) {
     chrome.storage.local.set({ [TOKEN_KEY]: event.data.token });
 });
 
-const getAuthToken = async () => {
-  const result = await chrome.storage.local.get([TOKEN_KEY]);
-  return result[TOKEN_KEY];
-};
-
 // Function to insert the generate message button
 function insertButton(sendButton, inMail) {
   sendButton.parentElement.style.position = "relative";
@@ -90,11 +85,6 @@ function observeTextboxes() {
     const button = insertButton(sendButton, inMail);
 
     button.onclick = async function (event) {
-      const token = await getAuthToken();
-      if (!token) {
-        alert("Please login to scrive to continue.");
-        return console.error("No auth token found. Please log in to continue.");
-      }
 
       event.preventDefault();
       event.stopPropagation();

@@ -150,7 +150,7 @@ export function Hero() {
             <div className="relative w-full aspect-video bg-black">
               <iframe
                 className="absolute w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                src="https://youtu.be/atv88nZuP_s"
                 title="Scrive Demo"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
