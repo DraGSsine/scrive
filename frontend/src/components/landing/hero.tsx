@@ -276,7 +276,7 @@ const HeroLeft = () => {
       </div>
 
       {/* Chat Message */}
-      <div className="p-4 border-b border-gray-100 flex-grow">
+      <div className=" px-4 py-10  border-gray-100 flex-grow">
         <div className="flex items-start gap-3">
           <div className="h-8 w-8 rounded-full overflow-hidden flex-shrink-0">
             <Image src="/emma.avif" width={50} height={50} alt="Profile" />
@@ -296,7 +296,7 @@ const HeroLeft = () => {
       </div>
 
       {/* Response Section */}
-      <div className="p-4 border-t border-gray-100 mt-auto">
+      <div className="p-4 border-t mt-20 border-gray-100 ">
         {/* Response Type Pills */}
         <div className="flex gap-2 mb-3">
           <button
