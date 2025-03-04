@@ -166,7 +166,7 @@ export function Hero() {
                     <CheckCircle2 className="w-5 h-5 text-green-600" />
                   </div>
                   <p className="text-sm font-medium text-gray-700">
-                    "I went from ignored to inbox hero—landed a gig in weeks!"
+                    I went from ignored to inbox hero landed a gig in weeks!
                   </p>
                 </div>
                 <div className="flex gap-3">
@@ -290,8 +290,8 @@ const HeroLeft = () => {
             <div className="bg-zinc-100 rounded-lg rounded-tl-none px-4 py-3 text-gray-700 inline-block max-w-full shadow-sm border border-gray-100">
               <p className="mb-1 text-sm font-medium">Hi Alex,</p>
               <p className="text-sm">
-                I hope this message finds you well. I've been following your
-                work and think you’d be a great fit for our team. Would you be
+                I hope this message finds you well. I&quot;ve been following your
+                work and think you&quot;d be a great fit for our team. Would you be
                 open to a brief chat about potential opportunities at Google?
               </p>
             </div>
