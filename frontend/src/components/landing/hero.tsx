@@ -59,25 +59,24 @@ export function Hero() {
               <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/50 backdrop-blur-sm border border-blue-100 shadow-sm">
                 <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                 <span className="text-xs md:text-sm font-medium text-zinc-600">
-                  Craft genuine messages
+                  Boost Your LinkedIn Game
                 </span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-zinc-800 leading-tight">
-                Transform Your{" "}
+                Supercharge Your{" "}
                 <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
                   LinkedIn
                 </span>
                 <br />
-                <span className="bg-gradient-to-r bg-violet-500 from-violet-500 to-violet-600 bg-clip-text text-transparent">
-                  Networking
+                <span className="bg-gradient-to-r from-violet-500 to-violet-600 bg-clip-text text-transparent">
+                  Connections
                 </span>
               </h1>
               <p className="text-base md:text-lg lg:text-xl text-zinc-600 max-w-xl mx-auto lg:mx-0">
-                Not sure how to start a conversation? Our tool helps you craft
-                friendly, personalized LinkedIn messages that spark real
-                conversations. Say goodbye to awkward intros and hello to
-                genuine connections!
+                Tired of blank stares at your LinkedIn messages? Our AI crafts
+                killer, personalized intros that grab attention and spark real
+                conversations no more crickets!
               </p>
             </div>
 
@@ -89,15 +88,15 @@ export function Hero() {
                 className="w-full sm:w-auto h-10 md:h-12 px-4 md:px-6 text-sm md:text-base font-medium flex items-center justify-center gap-2 rounded-full border-2 hover:border-violet-200 bg-white/50 hover:bg-white/80 hover:text-violet-600 transition-all duration-500"
               >
                 <Chrome className="w-4 h-4 md:w-5 md:h-5" />
-                <span className="whitespace-nowrap">Get it for Chrome</span>
-                <span className="hidden sm:inline ml-1">- Try for Free</span>
+                <span className="whitespace-nowrap">Add to Chrome</span>
+                <span className="hidden sm:inline ml-1">- Free!</span>
               </a>
               <button
                 onClick={openModal}
                 className="w-full sm:w-auto h-10 md:h-12 px-4 md:px-6 text-sm md:text-base rounded-full font-medium flex items-center justify-center bg-violet-600 hover:bg-violet-700 text-white shadow-lg shadow-violet-200 hover:shadow-xl hover:shadow-violet-200 transition-all duration-500 group"
               >
                 <Play className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-                Watch Demo
+                Demo
               </button>
             </div>
 
@@ -130,10 +129,10 @@ export function Hero() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">
-                    See Scrive in Action
+                    Witness the LinkedIn Glow-Up
                   </h3>
                   <p className="text-sm text-gray-500">
-                    Learn how to transform your LinkedIn networking
+                    Discover how to make connections that click
                   </p>
                 </div>
               </div>
@@ -149,7 +148,7 @@ export function Hero() {
             {/* Video Container */}
             <div className="relative w-full aspect-video bg-black">
               <iframe
-                className=" w-full h-full"
+                className="w-full h-full"
                 src="https://www.youtube.com/embed/atv88nZuP_s?si=ascLCj4TFw9GU_ea"
                 title="YouTube video player"
                 frameBorder="0"
@@ -167,7 +166,7 @@ export function Hero() {
                     <CheckCircle2 className="w-5 h-5 text-green-600" />
                   </div>
                   <p className="text-sm font-medium text-gray-700">
-                    Join thousands of professionals already using Scrive
+                    "I went from ignored to inbox hero—landed a gig in weeks!"
                   </p>
                 </div>
                 <div className="flex gap-3">
@@ -183,7 +182,7 @@ export function Hero() {
                     rel="noopener noreferrer"
                     className="px-5 py-2.5 text-sm font-medium text-white bg-violet-600 border border-transparent rounded-full hover:bg-violet-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-violet-500"
                   >
-                    Get Extension
+                    Grab It Now
                   </a>
                 </div>
               </div>
@@ -202,8 +201,8 @@ const HeroLeft = () => {
 
   useEffect(() => {
     const messages = [
-      "Sure, I'm interested",
-      "Hi Emma! Thanks for reaching out - I'm flattered you've been following my work. I'd love to learn more about the opportunity. Would you be free for a quick chat this week? Looking forward to connecting!",
+      "I'm Interested.",
+      `Hi Emma,\nThanks for reaching out! I’m impressed by Google Cloud’s innovations and believe my background in cloud architecture benefit your team. Are you available for a quick chat on Tuesday?`,
     ];
     let isActive = true;
 
@@ -261,7 +260,9 @@ const HeroLeft = () => {
             </div>
             <div>
               <div className="font-medium">Emma Thompson</div>
-              <div className="text-xs text-blue-100">Google</div>
+              <div className="text-xs font-normal text-gray-500">
+                Head of Recruiting at Google Cloud
+              </div>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -276,7 +277,7 @@ const HeroLeft = () => {
       </div>
 
       {/* Chat Message */}
-      <div className=" px-4 py-10  border-gray-100 flex-grow">
+      <div className="px-4 py-10 border-gray-100 flex-grow">
         <div className="flex items-start gap-3">
           <div className="h-8 w-8 rounded-full overflow-hidden flex-shrink-0">
             <Image src="/emma.avif" width={50} height={50} alt="Profile" />
@@ -286,17 +287,20 @@ const HeroLeft = () => {
               <span className="font-medium text-gray-900">Emma Thompson</span>
               <span className="text-xs text-gray-500">2m</span>
             </div>
-            <p className="bg-zinc-100 rounded-lg rounded-tl-none px-4 py-3 text-gray-700 inline-block max-w-full shadow-sm border border-gray-100">
-              Hi Alex, I&apos;ve been following your work and think you&apos;d
-              be a great fit for our team at Google. Could we chat about an
-              opportunity?
-            </p>
+            <div className="bg-zinc-100 rounded-lg rounded-tl-none px-4 py-3 text-gray-700 inline-block max-w-full shadow-sm border border-gray-100">
+              <p className="mb-1 text-sm font-medium">Hi Alex,</p>
+              <p className="text-sm">
+                I hope this message finds you well. I've been following your
+                work and think you’d be a great fit for our team. Would you be
+                open to a brief chat about potential opportunities at Google?
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Response Section */}
-      <div className="p-4 border-t mt-20 border-gray-100 ">
+      <div className="p-4 border-t mt-20 border-gray-100">
         {/* Response Type Pills */}
         <div className="flex gap-2 mb-3">
           <button
@@ -380,7 +384,7 @@ const HeroLeft = () => {
                     step === 0 ? "text-gray-500" : "text-blue-600"
                   }`}
                 >
-                  {step === 0 ? "Basic" : "Professional"}
+                  {step === 0 ? "Meh" : "Wow"}
                 </div>
               )}
               <button
@@ -406,12 +410,12 @@ const HeroLeft = () => {
             {step === 0 ? (
               <>
                 <AlertCircle className="w-3.5 h-3.5" />
-                <span>Direct but impersonal</span>
+                <span>Boring and bland</span>
               </>
             ) : (
               <>
                 <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>Personalized and professional</span>
+                <span>Fresh and friendly</span>
               </>
             )}
           </div>
