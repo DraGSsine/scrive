@@ -260,7 +260,7 @@ const HeroLeft = () => {
             </div>
             <div>
               <div className="font-medium">Emma Thompson</div>
-              <div className="text-xs font-normal text-gray-500">
+              <div className="text-xs font-normal text-gray-50">
                 Head of Recruiting at Google Cloud
               </div>
             </div>
