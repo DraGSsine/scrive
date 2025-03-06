@@ -26,9 +26,9 @@ const TestimonialSection = () => {
 
           {/* Testimonial Content */}
           <div className="pt-12 sm:pt-16 pl-0 sm:pl-4">
-            <h4 className="text-xl sm:text-2xl font-bold text-fuchsia-500 mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-fuchsia-500 mb-4">
               &quot;Game-Changer for Me&quot;
-            </h4>
+            </h3>
             <p className="text-gray-700 text-base sm:text-lg mb-8 sm:mb-12 leading-relaxed">
               I&apos;ve been using Scrive for a few weeks, and it&apos;s been a true game-changer. I&apos;m more productive and spend far less time on paperwork. I&apos;d recommend it to anyone looking to get more done.
             </p>

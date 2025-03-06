@@ -67,6 +67,7 @@ const Footer = () => {
                 target="_blank"
                 href="https://www.linkedin.com/in/yassineouchen/"
                 className="text-zinc-400 hover:text-blue-500 transition-colors"
+                aria-label="Visit Yassine Ouchen's LinkedIn profile"
               >
                 <Linkedin className="w-5 h-5" />
               </Link>
@@ -74,6 +75,7 @@ const Footer = () => {
                 target="_blank"
                 href="https://twitter.com/yassin_ouchn"
                 className="text-zinc-400 hover:text-blue-500 transition-colors"
+                aria-label="Visit Yassine Ouchen's Twitter profile"
               >
                 <Twitter className="w-5 h-5" />
               </Link>
